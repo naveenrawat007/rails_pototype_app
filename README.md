@@ -1,0 +1,1 @@
+# rails_pototype_app
