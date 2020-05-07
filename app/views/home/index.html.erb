@@ -1,0 +1,28 @@
+<h2>Your Tasks !!</h2>
+<div class="calendar">
+  <%= month_calendar do |date| %>
+    <%= date.day %>
+    <% if @tasks_by_date[date] %>
+     <ul>
+       <% @tasks_by_date[date].each do |task| %>
+         <li><%= task.name%></li>
+       <% end %>
+     </ul>
+   <% end %>
+  <% end %>
+</div>
+<span id="create-task">&#10010;</span>
+
+<div id="t-modal" class="task-modal">
+  <div class="container">
+    <h4>Create Task</h4>
+    <span id="quit" class="close">&times;</span>
+    <form class="task-form" action="/tasks" method="post" id="task-form">
+      <input type="text" id="name" name="name" placeholder="Task Name" required=true>
+      <input type="text" id="type" name="type" placeholder="Task Type" required=true>
+      <input type="text" id="date" name="date" placeholder="Task Date" required=true>
+      <input type="submit" value="Submit" id="submit">
+    </form>
+  </div>
+
+</div>
